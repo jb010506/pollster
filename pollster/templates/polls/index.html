@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    Hi
-{% endblock %}
-
-
 {% block content %}
-    Sure    
+    <h1>Questions for Voting</h1>
+
+        {% for question in questions %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="lead">
+                        {{question.question}}
+                    </p>
+                    <a href="{% url 'polls:detail' question.id %}" class="btn btn-outline-primary btn-sm">Enter</a>
+                    <a href="{% url 'polls:results' question.id %}" class="btn btn-outline-dark btn-sm">Result</a>
+                </div>
+            </div>
+        {% endfor %}
 {% endblock %}
+
+

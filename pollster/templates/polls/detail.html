@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class="btn btn-outline-dark btn-sm mt-3" href="{% url 'polls:index' %}">Back To Polls</a>
+<h1 class="text-center mb-3">{{ question.question_text }}</h1>
+
+{% if error_message %}
+<p class="alert alert-danger">
+	<strong>{{ error_message }}</strong>
+</p>
+{% endif %}
+
+<div class="card">
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %} 
+        <div class="card-header">
+            <h2>{{question.question}}</h2>
+        </div>
+        <div class="card-body">
+        {% for choice in question.choice_set.all %}
+            <div class="form-group form-check" >
+                <input
+                    type="radio"
+                    name="choice"
+                    class="form-check-input"
+                    id="choice{{ forloop.counter }}"
+                    value="{{ choice.id }}"
+                />
+                <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label>
+            </div>
+        {% endfor %}
+        </div>
+        <input type="submit" value="Vote" class="btn btn-outline-success" />
+    </form>
+</div>
+{% endblock %}

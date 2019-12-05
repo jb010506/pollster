@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card text-center">
+        <div class="card-body">
+            <h2>
+                Welcome to this Voting Website
+            </h2>
+            <a class="btn btn-outline-dark" href="{% url 'polls:index' %}">
+                View All Votes
+            </a>
+        </div>
+    </div>
+{% endblock %}

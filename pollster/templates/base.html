@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Let's Vote{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker|Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Let's Vote!</title>
+
 </head>
 <body>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <nav class="navbar mb-4">
+        <div class="container">
+            <a class="btn navbar-brand" href="/"> 
+                Let's Vote
+            </a>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Catagory</a></li>
+                    <li><a href="/">News</a></li>
+                    <li><a href="/">FAQ</a></li>
+        </div>
+        <a class="btn btn-light" href='/admin'>
+            login
+        </a>
+    </nav>
     <div class="container">
-        {% block content %}{% endblock %}
+        <div class="row">
+            <div class="m-auto">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
     </div>
-    
 </body>
 </html>
+
